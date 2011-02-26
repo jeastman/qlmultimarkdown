@@ -1,8 +1,43 @@
 #include "markdown.h"
-#include "discount/wrapper.h"
 
 NSData* renderMarkdown(NSURL* url)
 {
+	
+	NSString *path2MMD = @"/usr/local/bin/multimarkdown";
+
+
+	NSLog(@"launching %@", [path2MMD stringByExpandingTildeInPath]);
+	NSTask* task = [[NSTask alloc] init];
+	[task setLaunchPath: [path2MMD stringByExpandingTildeInPath]];
+	[task setArguments: [NSArray arrayWithObjects: nil]];
+	
+	NSPipe *writePipe = [NSPipe pipe];
+	NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
+	[task setStandardInput: writePipe];
+	
+	NSPipe *readPipe = [NSPipe pipe];
+	[task setStandardOutput:readPipe];
+	
+	[task launch];
+	
+	NSString *theData = [NSString stringWithContentsOfFile:[url path] encoding:NSUTF8StringEncoding error:nil];
+
+	[writeHandle writeData:[theData dataUsingEncoding:NSUTF8StringEncoding]];
+	[writeHandle closeFile];
+	
+	
+	NSData *mdData = [[readPipe fileHandleForReading] readDataToEndOfFile];
+
+	NSString* aStr;
+	aStr = [[NSString alloc] initWithData:mdData encoding:NSASCIIStringEncoding];
+
+	NSLog(@"results:\n%@",aStr);
+	
+	return mdData;
+	
+	//return [[readPipe fileHandleForReading] readDataToEndOfFile];
+	
+	/*
     NSString *styles = [NSString stringWithContentsOfFile:[[NSBundle bundleWithIdentifier: @"com.fiatdev.QLMarkdown"]
                                                            pathForResource:@"styles" ofType:@"css"]
                                                  encoding:NSUTF8StringEncoding
@@ -28,5 +63,22 @@ NSData* renderMarkdown(NSURL* url)
                                                  styles, [NSString stringWithUTF8String:output]];
     
     free(output);
-    return [html dataUsingEncoding:NSUTF8StringEncoding];
+    return [html dataUsingEncoding:NSUTF8StringEncoding];*/
 }
+
+/*
+
+ old version for MD.pl
+
+NSTask* task = [[NSTask alloc] init];
+[task setLaunchPath: [[NSBundle bundleWithIdentifier: @"com.fiatdev.QLMarkdown"] pathForResource: @"Markdown" ofType: @"pl"]];
+[task setArguments: [NSArray arrayWithObjects: [url path], nil]];
+
+NSPipe* pipe = [NSPipe pipe];
+[task setStandardOutput: pipe];
+
+[task launch];
+
+return [[pipe fileHandleForReading] readDataToEndOfFile];
+
+*/
