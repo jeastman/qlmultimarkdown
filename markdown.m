@@ -3,10 +3,10 @@
 NSData* renderMarkdown(NSURL* url)
 {
 	
-	NSString *path2MMD = @"/usr/local/bin/multimarkdown";
+	NSString *path2MMD = @"~/Library/Application Support/MultiMarkdown/bin/opml2XHTML";
 
 
-	NSLog(@"launching %@", [path2MMD stringByExpandingTildeInPath]);
+	NSLog(@"launching %@ for OPML", [path2MMD stringByExpandingTildeInPath]);
 	NSTask* task = [[NSTask alloc] init];
 	[task setLaunchPath: [path2MMD stringByExpandingTildeInPath]];
 	[task setArguments: [NSArray arrayWithObjects: nil]];
