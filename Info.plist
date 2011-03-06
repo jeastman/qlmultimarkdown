@@ -28,6 +28,7 @@
 					<string>text</string>
 					<string>mdwn</string>
 					<string>txt</string>
+					<string>mmd</string>
 				</array>
 			</dict>
 		</dict>
@@ -54,7 +55,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.fiatdev.QLMarkdown</string>
+	<string>net.fletcherpenney.MMD</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleVersion</key>
