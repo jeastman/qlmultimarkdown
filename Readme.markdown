@@ -41,6 +41,12 @@ The QLMarkdown code is distributed under the same terms as [Discount][Discount].
 the file `discount/COPYRIGHT` for more information.
 
 
+Known Issues
+------------
+
+Images are not displayed in previews.
+
+
 Version History
 ---------------
 
