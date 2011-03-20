@@ -15,7 +15,7 @@
 			<string>public.text.icns</string>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.plain-text</string>
+				<string>org.opml.opml</string>
 			</array>
 			<key>UTTypeTagSpecification</key>
 			<dict>
