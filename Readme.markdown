@@ -7,6 +7,9 @@ by Phil Toland
 fixes and improvements by Michael Dominic K.
 <http://www.mdk.org.pl>
 
+MultiMarkdown 3.0 support by Fletcher T. Penney
+<http://fletcherpenney.net/mmd/>
+
 Introduction
 ------------
 
@@ -16,6 +19,12 @@ John Gruber's Markdown.pl script.
 
 For more information on Markdown see 
 <http://daringfireball.net/projects/markdown/>.
+
+QLMultiMarkdown uses [MultiMarkdown 3.0] \(which must be installed separately)
+to render previews of MultiMarkdown documents. It is *much* faster than the
+perl version and more suitable to this sort of use than a perl script.
+
+[MultiMarkdown 3.0]: https://github.com/fletcher/peg-multimarkdown/downloads
 
 
 Installation
@@ -29,9 +38,9 @@ To uninstall, drag QLMarkdown into the trash.
 Downloads
 ---------
 
-Source code is available at <http://github.com/toland/qlmarkdown>.
+Source code is available at <http://github.com/fletcher/qlmultimarkdown>.
 
-You can download a binary release from <http://github.com/toland/qlmarkdown/archives/master>.
+You can download a binary release from <https://github.com/fletcher/qlmultimarkdown/downloads>.
 
 
 License
@@ -41,8 +50,24 @@ The QLMarkdown code is distributed under the same terms as [Discount][Discount].
 the file `discount/COPYRIGHT` for more information.
 
 
+Known Issues
+------------
+
+Images are not displayed in previews.
+
+
 Version History
 ---------------
+
+### qlmultimarkdown ###
+
+Version 2.0 - Feb 26, 2011
+
+* Initial MultiMarkdown support - replace previous quicklook app that used
+  perl version of MMD
+
+
+### qlmarkdown ###
 
 Version 1.2 - Oct 4, 2009
 
