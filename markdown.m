@@ -31,7 +31,7 @@ NSData* renderMarkdown(NSURL* url)
 	NSString* aStr;
 	aStr = [[NSString alloc] initWithData:mdData encoding:NSASCIIStringEncoding];
 
-	NSLog(@"results:\n%@",aStr);
+	//NSLog(@"results:\n%@",aStr);
 	
 	return mdData;
 	
