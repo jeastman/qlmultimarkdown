@@ -47,7 +47,6 @@
 	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>net.fletcherpenney.OPML-MMD</string>
-	<string>net.fletcherpenney.MMD</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleVersion</key>
